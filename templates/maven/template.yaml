@@ -7,6 +7,12 @@ parameters:
   - name: github_repo
     type: string
     displayName: GitHub repository endpoint
-  - name: github_credentialss
+  - name: github_credentials
     displayName: GitHub Credentials ID
     type: credentials
+
+multibranch:
+  branchSource:
+    git:
+      remote: ${github_repo}
+      credentialsId: ${github_credentials}
