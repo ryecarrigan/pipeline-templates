@@ -1,0 +1,23 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Checkout') {
+      steps {
+        git credentialsId: "${github_credentials}", url: "${github_repo}"
+      }
+    }
+
+    stage('Build') {
+      steps {
+        echo 'mvn package'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo 'mvn deploy'
+      }
+    }
+  }
+}

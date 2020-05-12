@@ -1,0 +1,12 @@
+version: 1
+type: pipeline-template
+
+name: Java app with Maven
+description: Example of a Java app with Maven
+parameters:
+  - name: github_repo
+    type: string
+    displayName: GitHub repository endpoint
+  - name: github_credentialss
+    displayName: GitHub Credentials ID
+    type: credentials
