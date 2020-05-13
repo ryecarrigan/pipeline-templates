@@ -1,0 +1,19 @@
+pipeline {
+  agent {
+    kubernetes true
+  }
+
+  stages {
+    stage('Build') {
+      steps {
+        echo 'mvn package'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo 'mvn deploy'
+      }
+    }
+  }
+}

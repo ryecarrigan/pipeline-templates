@@ -1,8 +1,7 @@
 version: 1
 type: pipeline-template
-templateType: MULTIBRANCH
 
-name: Maven app
+name: Maven pipeline
 description: Example of a Java app with Maven
 
 parameters:
@@ -12,9 +11,3 @@ parameters:
   - name: github_credentials
     displayName: GitHub Credentials ID
     type: credentials
-
-multibranch:
-  branchSource:
-    git:
-      remote: ${github_repo}
-      credentialsId: ${github_credentials}
