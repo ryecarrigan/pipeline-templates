@@ -1,5 +1,6 @@
 version: 1
 type: pipeline-template
+templateType: SCRIPTED
 
 name: Maven pipeline
 description: Example of a Java app with Maven
@@ -11,3 +12,9 @@ parameters:
   - name: github_credentials
     displayName: GitHub Credentials ID
     type: credentials
+  - name: environment
+    type: string
+    displayName: Deployment environment
+    allowedValues:
+      - staging
+      - production
