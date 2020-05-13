@@ -6,19 +6,19 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'docker build'
+        echo 'npm install'
       }
     }
 
     stage('Test') {
       steps {
-        echo 'docker run'
+        echo 'npm test'
       }
     }
 
     stage('Deploy') {
       steps {
-        echo 'docker push'
+        echo 'npm publish'
       }
     }
   }

@@ -1,0 +1,20 @@
+version: 1
+type: pipeline-template
+templateType: MULTIBRANCH
+
+name: NPM package
+description: Example of a NPM build
+
+parameters:
+  - name: github_repo
+    type: string
+    displayName: GitHub repository endpoint
+  - name: github_credentials
+    displayName: GitHub Credentials ID
+    type: credentials
+
+multibranch:
+  branchSource:
+    git:
+      remote: ${github_repo}
+      credentialsId: ${github_credentials}
