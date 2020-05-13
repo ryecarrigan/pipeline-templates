@@ -2,7 +2,7 @@ version: 1
 type: pipeline-template
 templateType: MULTIBRANCH
 
-name: Java app with Maven
+name: Maven app
 description: Example of a Java app with Maven
 
 parameters:
