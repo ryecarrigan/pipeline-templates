@@ -2,7 +2,7 @@ version: 1
 type: pipeline-template
 templateType: SCRIPTED
 
-name: Maven pipeline
+name: Maven scripted pipeline
 description: Example of a Java app with Maven
 
 parameters:

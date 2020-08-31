@@ -1,20 +1,13 @@
-pipeline {
-  agent {
-    kubernetes true
-  }
+library identifier: 'my-library@master', changelog: false, retriever: modernSCM([$class: 'GitSCMSource', credentialsId: 'github', remote: 'git@github.com:ryecarrigan/pipeline-libraries.git'])
 
-  stages {
+podTemplate {
+  node(POD_LABEL) {
     stage('Build') {
-      steps {
-        echo 'mvn package'
-      }
+      echo 'mvn package'
     }
 
     stage('Deploy') {
-      steps {
-        echo "Deploy to ${environment}"
-        echo 'mvn deploy'
-      }
+      echo 'mvn deploy'
     }
   }
 }
