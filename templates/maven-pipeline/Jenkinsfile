@@ -3,11 +3,11 @@ library identifier: 'my-library@master', changelog: false, retriever: modernSCM(
 podTemplate {
   node(POD_LABEL) {
     stage('Build') {
-      echo 'mvn package'
+      echo 'Building from ${github_repo}'
     }
 
     stage('Deploy') {
-      echo 'mvn deploy'
+      echo 'Deploying to ${environment}'
     }
   }
 }
