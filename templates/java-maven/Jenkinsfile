@@ -24,7 +24,7 @@ spec:
       }
     }
 
-    stage('CheckStyle') {
+    stage('Verify') {
       steps {
         echo 'mvn -DskipTests=true verify'
       }
