@@ -20,31 +20,31 @@ spec:
   stages {
     stage('Build') {
       steps {
-        echo 'mvn -DskipTests=true package'
+        doBuild()
       }
     }
 
     stage('Verify') {
       steps {
-        echo 'mvn -DskipTests=true verify'
+        doVerify()
       }
     }
 
     stage('Unit Tests') {
       steps {
-        echo 'mvn test'
+        doUnitTests()
       }
     }
 
     stage('Integration Tests') {
       steps {
-        echo 'mvn integration-test'
+        doIntegrationTests()
       }
     }
 
     stage('Deploy') {
       steps {
-        echo "mvn -DskipTests=true deploy"
+        doDeploy()
       }
     }
   }
