@@ -1,8 +1,10 @@
 pipeline {
   agent {
     kubernetes {
-      yaml '''
-  spec:
+      yaml '''---
+apiVersion: "v1"
+kind: "Pod"
+spec:
   containers:
   - name: jnlp
   - name: jdk
@@ -10,7 +12,7 @@ pipeline {
     command:
     - cat
     tty: true
-      '''
+'''
     }
   }
 
@@ -33,15 +35,6 @@ pipeline {
           echo "deploy"
         }
       }
-    }
-  }
-
-  post {
-    failure {
-      // The developer setting up this job can specify which group should receive an email when the build fails
-      mail to: "${email_recipient}",
-          subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-          body: "Something is wrong with ${env.BUILD_URL}"
     }
   }
 }
