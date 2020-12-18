@@ -1,5 +1,5 @@
 version: 1
 type: 'pipeline-template-catalog'
 
-name: 'pipeline-templates'
+name: 'demo-catalog'
 displayName: 'Demo Catalog'
