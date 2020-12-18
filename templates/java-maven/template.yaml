@@ -14,7 +14,7 @@ parameters:
     type: 'credentials'
   - name: 'jdk_image'
     displayName: 'Maven container image'
-    defaultValue: 'maven:3-jdk-11'
+    defaultValue: 'maven:3-openjdk-11'
     allowedValues:
       - 'maven:3-openjdk-8'
       - 'maven:3-openjdk-11'
