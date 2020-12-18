@@ -1,14 +1,15 @@
 pipeline {
   agent {
     kubernetes {
+      defaultContainer 'maven'
       yaml """---
 apiVersion: "v1"
 kind: "Pod"
 spec:
   containers:
   - name: jnlp
-  - name: jdk
-    image: ${jdk_image}
+  - name: maven
+    image: ${maven_image}
     command:
     - cat
     tty: true
@@ -16,24 +17,34 @@ spec:
     }
   }
 
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
-
   stages {
     stage('Build') {
       steps {
-        container('jdk') {
-          sh 'mvn package'
-        }
+        echo 'mvn -DskipTests=true package'
+      }
+    }
+
+    stage('CheckStyle') {
+      steps {
+        echo 'mvn -DskipTests=true verify'
+      }
+    }
+
+    stage('Unit Tests') {
+      steps {
+        echo 'mvn test'
+      }
+    }
+
+    stage('Integration Tests') {
+      steps {
+        echo 'mvn integration-test'
       }
     }
 
     stage('Deploy') {
       steps {
-        container('jdk') {
-          echo "deploy"
-        }
+        echo "mvn -DskipTests=true deploy"
       }
     }
   }
