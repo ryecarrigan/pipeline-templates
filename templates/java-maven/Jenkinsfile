@@ -1,0 +1,47 @@
+pipeline {
+  agent {
+    kubernetes {
+      yaml '''
+  spec:
+  containers:
+  - name: jnlp
+  - name: jdk
+    image: ${jdk_mage}
+    command:
+    - cat
+    tty: true
+      '''
+    }
+  }
+
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
+
+  stages {
+    stage('Build') {
+      steps {
+        container('jdk') {
+          sh 'mvn package'
+        }
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        container('jdk') {
+          echo "deploy"
+        }
+      }
+    }
+  }
+
+  post {
+    failure {
+      // The developer setting up this job can specify which group should receive an email when the build fails
+      mail to: "${emailRecipient}",
+          subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+          body: "Something is wrong with ${env.BUILD_URL}"
+    }
+  }
+}

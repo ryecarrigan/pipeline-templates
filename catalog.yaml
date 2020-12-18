@@ -1,5 +1,5 @@
 version: 1
-type: pipeline-template-catalog
+type: 'pipeline-template-catalog'
 
-name: pipeline-templates
-displayName: Example Catalog
+name: 'pipeline-templates'
+displayName: 'Pipeline Template Catalog'

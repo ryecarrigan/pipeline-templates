@@ -1,0 +1,31 @@
+version: 1
+type: 'pipeline-template'
+templateType: 'MULTIBRANCH'
+
+name: 'Java/Maven'
+description: 'Example of a Java app with Maven'
+
+parameters:
+  - name: 'github_repo'
+    type: 'string'
+    displayName: 'GitHub repository endpoint'
+  - name: 'github_credentials'
+    displayName: 'GitHub credentials ID'
+    type: 'credentials'
+  - name: 'email_recipient'
+    displayName: 'Target email for build notifications'
+    type: 'string'
+    defaultValue: 'rcarrigan@cloudbees.com'
+  - name: 'jdk_image'
+    displayName: 'JDK container image'
+    defaultValue: 'openjdk:11-jdk'
+    allowedValues:
+      - 'openjdk:8-jdk'
+      - 'openjdk:11-jdk'
+      - 'openjdk:14-jdk'
+
+multibranch:
+  branchSource:
+    git:
+      remote: '${github_repo}'
+      credentialsId: '${github_credentials}'
