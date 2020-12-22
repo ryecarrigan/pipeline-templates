@@ -9,9 +9,6 @@ parameters:
   - name: 'github_repo'
     type: 'string'
     displayName: 'GitHub repository endpoint'
-  - name: 'github_credentials'
-    displayName: 'GitHub credentials ID'
-    type: 'credentials'
   - name: 'maven_image'
     displayName: 'Maven container image'
     defaultValue: 'maven:3-openjdk-11'
@@ -25,4 +22,4 @@ multibranch:
   branchSource:
     git:
       remote: '${github_repo}'
-      credentialsId: '${github_credentials}'
+      credentialsId: 'github'
