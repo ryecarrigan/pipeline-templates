@@ -20,31 +20,31 @@ spec:
   stages {
     stage('Build') {
       steps {
-        doBuild()
+        Build()
       }
     }
 
     stage('Verify') {
       steps {
-        doVerify()
+        Verify()
       }
     }
 
     stage('Unit Tests') {
       steps {
-        doUnitTests()
+        UnitTests()
       }
     }
 
     stage('Integration Tests') {
       steps {
-        doIntegrationTests()
+        IntegrationTests()
       }
     }
 
     stage('Deploy') {
       steps {
-        doDeploy()
+        Deploy()
       }
     }
   }
