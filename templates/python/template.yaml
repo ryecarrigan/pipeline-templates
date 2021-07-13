@@ -2,7 +2,7 @@ version: 1
 type: 'pipeline-template'
 templateType: 'MULTIBRANCH'
 
-name: 'Python'
+name: 'Python app'
 description: 'Example of a Python app'
 
 parameters:
@@ -11,7 +11,7 @@ parameters:
     displayName: 'GitHub repository endpoint'
   - name: 'python_image'
     displayName: 'Python container image'
-    defaultValue: 'maven:3-openjdk-11'
+    defaultValue: 'python:3.9-buster'
     allowedValues:
       - 'python:3.6-buster'
       - 'python:3.7-buster'

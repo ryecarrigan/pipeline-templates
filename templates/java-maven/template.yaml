@@ -2,7 +2,7 @@ version: 1
 type: 'pipeline-template'
 templateType: 'MULTIBRANCH'
 
-name: 'Java/Maven'
+name: 'Java app with Maven'
 description: 'Example of a Java app with Maven'
 
 parameters:
