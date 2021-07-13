@@ -21,31 +21,25 @@ spec:
   stages {
     stage('Build') {
       steps {
-        Build()
+        echo 'Build stage'
       }
     }
 
     stage('Verify') {
       steps {
-        Verify()
+        echo 'Verify stage'
       }
     }
 
-    stage('Unit Tests') {
+    stage('Test') {
       steps {
-        UnitTests()
-      }
-    }
-
-    stage('Integration Tests') {
-      steps {
-        IntegrationTests()
+        echo 'Test stage'
       }
     }
 
     stage('Deploy') {
       steps {
-        Deploy()
+        echo 'Deploy stage'
       }
     }
   }
