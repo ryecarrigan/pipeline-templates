@@ -22,4 +22,4 @@ multibranch:
   branchSource:
     git:
       remote: '${github_repo}'
-      credentialsId: 'github'
+      credentialsId: 'github-key'
