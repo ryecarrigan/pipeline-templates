@@ -2,6 +2,7 @@ pipeline {
   agent {
     kubernetes {
       defaultContainer 'maven'
+      showRawYaml false
       yaml """---
 apiVersion: "v1"
 kind: "Pod"
