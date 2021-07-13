@@ -19,10 +19,14 @@ spec:
   }
 
   stages {
-    stage('Demo') {
+    stage('Build') {
       steps {
-        sh 'python --version'
+        sh 'pip install -q pytest'
       }
+    }
+
+    stage('Test') {
+      sh 'pytest --version'
     }
   }
 }
