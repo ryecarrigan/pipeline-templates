@@ -9,6 +9,9 @@ parameters:
   - name: 'github_repo'
     type: 'string'
     displayName: 'GitHub repository endpoint'
+  - name: 'github_creds'
+    type: 'credentials'
+    defaultValue: 'github-key'
   - name: 'python_image'
     displayName: 'Python container image'
     defaultValue: 'python:3.9-buster'
@@ -22,4 +25,4 @@ multibranch:
   branchSource:
     git:
       remote: '${github_repo}'
-      credentialsId: 'github-key'
+      credentialsId: '${github_creds}'

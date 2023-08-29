@@ -15,11 +15,11 @@ parameters:
     allowedValues:
       - 'maven:3-openjdk-8'
       - 'maven:3-openjdk-11'
-      - 'maven:3-openjdk-15'
-      - 'maven:3-openjdk-16'
+      - 'maven:3-openjdk-17'
 
 multibranch:
   branchSource:
     git:
       remote: '${github_repo}'
       credentialsId: 'github-key'
+  markerFile: 'pom.xml'
